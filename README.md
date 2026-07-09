@@ -395,20 +395,30 @@ npm run dev
 
 ---
 
-# 🤝 Contributing
-
-Contributions are welcome.
-
-Feel free to fork the project, submit pull requests, or open issues for bugs and feature requests.
-
 ---
 
-# 📄 License
+# 👨‍💻 Developer
 
-This project is licensed under the MIT License.
+Developed by **Merd**.
+
+If you have any questions, suggestions, or would like to collaborate, feel free to reach out!
+
+### 📬 Contact
+
+- 🌐 Website: https://merdlabs.xyz
+- 📷 Instagram: https://instagram.com/gottalovemerdd
+- 📧 Email: merdshesaid@gmail.com
 
 ---
 
 # ⭐ Support
 
 If you found this project useful, consider giving it a ⭐ on GitHub!
+
+If you discover any bugs or have ideas for new features, feel free to open an issue or submit a pull request.
+
+---
+
+# 📄 License
+
+This project is licensed under the MIT License.

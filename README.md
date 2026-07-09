@@ -1,245 +1,414 @@
-🚗 CarVault
+# 🚗 CarVault
 
-CarVault is a modern Next.js web application that helps you keep track of your vehicles in one place. Store important car information, monitor upcoming service dates, and never miss routine maintenance again.
+CarVault is a modern web application built with **Next.js** that helps you manage your vehicles and keep track of important service and maintenance dates. Instead of forgetting when your next oil change, inspection, or service is due, CarVault stores everything securely in a cloud database powered by Supabase.
 
-Perfect for anyone who owns one or multiple vehicles and wants an easy way to organize maintenance history.
+Whether you own one car or several, CarVault keeps all your vehicle information organized in one place.
 
-✨ Features
-🚘 Add and manage multiple vehicles
-📝 Store important car details
--Make
--Model
--Year
--Registration
--VIN (optional)
-🔧 Track service & maintenance dates
-📅 Get an overview of upcoming service checks
-☁️ Cloud database powered by Supabase
-⚡ Fast and responsive UI built with Next.js
-🛠️ Technologies Used
--Next.js (App Router)
--React
--JavaScript
--Supabase
--CSS
--ESLint
--PostCSS
--Node.js
--npm
+---
 
-Project structure includes:
+# ✨ Features
 
+- 🚘 Add multiple vehicles
+- 📝 Save vehicle details
+- 🔧 Track service and maintenance dates
+- 📅 Never miss upcoming services
+- ☁️ Cloud database with Supabase
+- ⚡ Fast and responsive interface
+- 📱 Modern Next.js App Router structure
+
+---
+
+# 🛠 Technologies Used
+
+- Next.js 15 (App Router)
+- React
+- JavaScript (ES6)
+- Supabase
+- Node.js
+- npm
+- CSS
+- PostCSS
+- ESLint
+
+---
+
+# 📁 Project Structure
+
+```
 carvault/
 │
-├── src/app/
-│   ├── layout.js
-│   ├── page.js
-│   ├── globals.css
-│   └── favicon.ico
+├── src/
+│   └── app/
+│       ├── favicon.ico
+│       ├── globals.css
+│       ├── layout.js
+│       └── page.js
 │
 ├── lib/
 │   └── supabase.js
 │
 ├── public/
+│
 ├── .env.local
-├── next.config.mjs
-├── postcss.config.mjs
-├── eslint.config.mjs
 ├── package.json
+├── package-lock.json
+├── next.config.mjs
+├── eslint.config.mjs
+├── postcss.config.mjs
+├── jsconfig.json
 └── README.md
+```
 
-🚀 Getting Started
-1. Clone the repository
-git clone https://github.com/yourusername/carvault.git
-2. Navigate into the project
+---
+
+# 🚀 Installation
+
+## 1. Clone the repository
+
+```bash
+git clone https://github.com/YOUR_USERNAME/carvault.git
+```
+
+Replace `YOUR_USERNAME` with your GitHub username.
+
+---
+
+## 2. Navigate into the project
+
+```bash
 cd carvault
-3. Install dependencies
+```
+
+---
+
+## 3. Install dependencies
+
+```bash
 npm install
+```
 
 or
 
+```bash
 npm i
+```
 
-4. Create a Supabase project
+---
+
+# ☁️ Setting Up Supabase
+
+## Step 1
 
 Go to:
 
 https://supabase.com
 
+Create a free account if you don't already have one.
+
+---
+
+## Step 2
+
 Create a new project.
 
 Wait until the database finishes provisioning.
 
-5. Get your Supabase URL & Public API Key
+---
 
-Inside your Supabase project:
+## Step 3
 
-Settings → API
+Open your project dashboard.
 
-Copy:
+Navigate to:
 
-Project URL
-Project API Key (anon/public)
+```
+Settings
+    ↓
+API
+```
 
-Create a file named:
+You will see:
 
+- Project URL
+- Project API Keys
+
+Copy the following:
+
+- Project URL
+- anon public API key
+
+Do **NOT** use the Service Role Key.
+
+---
+
+## Step 4
+
+Create a file in the root of the project called:
+
+```
 .env.local
+```
 
-Add:
+Paste the following:
 
+```env
 NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your_public_anon_key
+```
 
-Restart the development server after creating the .env.local file.
+Example:
 
-6. Run the development server
+```env
+NEXT_PUBLIC_SUPABASE_URL=https://abcxyz.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGc...
+```
+
+Save the file.
+
+Restart your development server if it was already running.
+
+---
+
+# ▶ Running the Project
+
+Start the development server:
+
+```bash
 npm run dev
+```
 
-Open:
+Open your browser and visit:
 
+```
 http://localhost:3000
-📂 Database Setup
+```
 
-Create the required tables inside Supabase according to the application requirements.
+---
 
-Example tables:
+# 📦 Available Commands
 
-Cars
-id
-make
-model
-year
-registration
-vin
-Services
-id
-car_id
-service_type
-service_date
-notes
-📦 Available Scripts
+Install packages
 
-Start development server
+```bash
+npm install
+```
 
+Run development server
+
+```bash
 npm run dev
+```
 
 Build production version
 
+```bash
 npm run build
+```
 
-Run production server
+Start production server
 
+```bash
 npm start
+```
 
 Run ESLint
 
+```bash
 npm run lint
-⚠️ Common Errors & Fixes
-Missing environment variables
+```
 
-Error
+---
 
+# 🗄 Suggested Database Tables
+
+## cars
+
+| Column | Type |
+|---------|------|
+| id | uuid |
+| make | text |
+| model | text |
+| year | integer |
+| registration | text |
+| vin | text |
+
+---
+
+## services
+
+| Column | Type |
+|---------|------|
+| id | uuid |
+| car_id | uuid |
+| service_type | text |
+| service_date | date |
+| notes | text |
+
+---
+
+# ⚠ Common Errors
+
+## Missing Environment Variables
+
+**Error**
+
+```
 Missing Supabase URL
+```
 
-Solution
+**Solution**
 
-Make sure .env.local exists and contains:
+Make sure `.env.local` exists and contains:
 
+```env
 NEXT_PUBLIC_SUPABASE_URL=...
 NEXT_PUBLIC_SUPABASE_ANON_KEY=...
+```
 
 Restart the server afterwards.
 
+---
+
+## Invalid API Key
+
+**Error**
+
+```
+Invalid API key
+```
+
+**Solution**
+
+Make sure you're using the **Anon Public Key** and not the **Service Role Key**.
+
+---
+
+## Module Not Found
+
+**Error**
+
+```
 Module not found
+```
 
-Error
+**Solution**
 
-Module not found
+Run:
 
-Solution
-
-Install dependencies:
-
+```bash
 npm install
-Cannot find package
+```
 
-Error
+---
 
-Cannot find module...
+## Cannot find module
 
-Solution
+Delete dependencies and reinstall.
 
-Delete and reinstall dependencies:
+Linux/macOS
 
-rm -rf node_modules package-lock.json
+```bash
+rm -rf node_modules
+rm package-lock.json
 npm install
+```
 
-Windows (PowerShell):
+Windows PowerShell
 
+```powershell
 Remove-Item node_modules -Recurse -Force
 Remove-Item package-lock.json
 npm install
-Port 3000 already in use
+```
 
-Error
+---
 
+## Port 3000 already in use
+
+**Error**
+
+```
 EADDRINUSE
+```
 
-Solution
+Run on another port:
 
-Close the process using port 3000, or run:
-
+```bash
 npm run dev -- -p 3001
-Invalid Supabase API Key
+```
 
-Error
+or close the application already using port 3000.
 
-Invalid API key
+---
 
-Solution
+## Failed to Fetch
 
-Ensure you're using the anon/public key, not the service role key.
+Possible reasons:
 
-Failed to fetch
+- Wrong Supabase URL
+- Wrong API key
+- Database tables do not exist
+- Row Level Security (RLS) prevents access
+- No internet connection
 
-Possible causes:
+---
 
-Incorrect Supabase URL
-Database tables don't exist
-Row Level Security (RLS) blocks requests
-Internet connection issues
-npm command not found
+## npm is not recognized
 
-Install Node.js from:
+Install Node.js:
 
 https://nodejs.org
 
 Verify installation:
 
+```bash
 node -v
 npm -v
-Changes are not updating
+```
 
-Try restarting the development server:
+---
 
+## Changes don't appear
+
+Restart the server:
+
+```bash
 Ctrl + C
 npm run dev
-📌 Future Improvements
-User authentication
-Service reminders & notifications
-Vehicle image uploads
-Fuel consumption tracking
-Expense history
-Export maintenance records
-Mobile-friendly improvements
-🤝 Contributing
+```
 
-Contributions, suggestions, and pull requests are welcome.
+---
 
-If you find a bug or have an idea for a new feature, feel free to open an issue.
+# 🚀 Future Improvements
 
-📄 License
+- User Authentication
+- Email Login
+- Vehicle Images
+- Service Reminders
+- Notifications
+- Fuel Consumption Tracker
+- Maintenance History
+- Expense Tracking
+- Search & Filter Vehicles
+- Export Service History as PDF
+- Dark Mode
+
+---
+
+# 🤝 Contributing
+
+Contributions are welcome.
+
+Feel free to fork the project, submit pull requests, or open issues for bugs and feature requests.
+
+---
+
+# 📄 License
 
 This project is licensed under the MIT License.
 
-⭐ If you like this project, consider giving it a star on GitHub!
+---
+
+# ⭐ Support
+
+If you found this project useful, consider giving it a ⭐ on GitHub!

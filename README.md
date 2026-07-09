@@ -1,4 +1,3 @@
-=======
 # 🚗 CarVault
 
 CarVault is a modern web application built with **Next.js** that helps you manage your vehicles and keep track of important service and maintenance dates. Instead of forgetting when your next oil change, inspection, or service is due, CarVault stores everything securely in a cloud database powered by Supabase.
